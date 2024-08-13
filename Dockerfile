@@ -1,0 +1,12 @@
+# This exists till https://github.com/actions/runner/pull/3056 is merged
+FROM ghcr.io/actions/actions-runner:latest
+
+USER root
+RUN apt-get update -y \
+    && apt-get install -y --no-install-recommends \
+    git \
+    curl \
+    jq \
+    unzip
+
+USER runner
