@@ -82,6 +82,18 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+      # Build and push Docker image with Buildx (don't push on PR)
+      # https://github.com/docker/build-push-action
+      - name: Build and push Docker image
+        id: build-and-push-openeuler
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          platforms: linux/amd64,linux/arm64
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: openeuler
+          labels: ${{ steps.meta.outputs.labels }}
+          file: Dockerfile.openeuler
       - name: Sign the published Docker image
         if: ${{ github.event_name != 'pull_request' }}
         env:
