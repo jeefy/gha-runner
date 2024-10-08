@@ -11,6 +11,4 @@ RUN apt-get update -y \
     jq \
     unzip
 
-RUN npm install --global yarn
-
 USER runner
