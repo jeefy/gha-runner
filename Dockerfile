@@ -5,9 +5,12 @@ USER root
 RUN apt-get update -y \
     && apt-get install -y --no-install-recommends \
     build-essential \
+    npm \
     git \
     curl \
     jq \
     unzip
+
+RUN npm install --global yarn
 
 USER runner
