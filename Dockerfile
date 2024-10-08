@@ -4,6 +4,7 @@ FROM ghcr.io/actions/actions-runner:latest
 USER root
 RUN apt-get update -y \
     && apt-get install -y --no-install-recommends \
+    build-essential \
     git \
     curl \
     jq \
