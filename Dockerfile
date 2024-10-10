@@ -9,6 +9,7 @@ RUN apt-get update -y \
     git \
     curl \
     jq \
-    unzip
+    unzip \
+    kmod
 
 USER runner
